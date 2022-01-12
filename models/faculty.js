@@ -26,6 +26,4 @@ const Faculty = sequelize.define('Faculty', {
     }
 });
 
-
-// `sequelize.define` also returns the model
-console.log(Faculty === sequelize.models.Faculty); // true
+console.log(Faculty === sequelize.models.Faculty);

@@ -14,7 +14,7 @@ const Student = sequelize.define('Student', {
         type: DataTypes.INTEGER
     },
     DOB: {
-        type: DataTypes.DATE
+        type: DataTypes.DATEONLY
     },
     FatherName: {
         type: DataTypes.STRING
