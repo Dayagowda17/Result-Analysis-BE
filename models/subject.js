@@ -1,5 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
-
+let sequelize;
+module.exports.initModel = (db) => {
+    sequelize = db
+}
 const Subject = Sequelize.define('Subject', {
     id: {
         type: Sequelize.INTEGER,
@@ -11,11 +14,8 @@ const Subject = Sequelize.define('Subject', {
     },
     subject_name: {
         type: DataTypes.STRING
-
     },
     schema_year: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
-
-
 });
 
 

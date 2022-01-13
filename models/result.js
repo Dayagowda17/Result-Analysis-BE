@@ -1,5 +1,8 @@
 const { sequelize, DataTypes } = require('sequelize');
-
+let sequelize;
+module.exports.initModel = (db) => {
+    sequelize = db
+}
 const Result = sequelize.define('Result', {
     id: {
         type: Sequelize.INTEGER,
@@ -17,7 +20,6 @@ const Result = sequelize.define('Result', {
     Sem: {
         type: DataTypes.INTEGER
     },
-
     Total: {
         type: DataTypes.INTEGER
     },

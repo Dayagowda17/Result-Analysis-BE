@@ -1,4 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
+let sequelize;
+module.exports.initModel = (db) => {
+    sequelize = db
+}
 const Student = sequelize.define('Student', {
 
     id: {
@@ -14,7 +18,6 @@ const Student = sequelize.define('Student', {
     usn: {
         type: DataTypes.STRING,
         allowNull: false
-
     },
     sem: {
         type: DataTypes.INTEGER

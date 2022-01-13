@@ -1,4 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
+let sequelize;
+module.exports.initModel = (db) => {
+    sequelize = db
+}
 
 const Faculty = sequelize.define('Faculty', {
     id: {
