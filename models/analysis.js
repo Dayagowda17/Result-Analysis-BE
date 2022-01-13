@@ -1,18 +1,24 @@
 const { sequelize, DataTypes } = require('sequelize');
 
 const Analysis = sequelize.define('Analysis', {
-    ExaminationYear: {
-        type: DataTypes.DATEONLY
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
     },
-    Branch: {
+    examination_year: {
+        type: DataTypes.NUMBER
+    },
+    branch: {
         type: DataTypes.STRING
     },
-    Sem: {
+    sem: {
         type: DataTypes.INTEGER
     },
-    Subject: {
+    subject: {
         type: DataTypes.STRING
-    }
+    },
+
 });
 
 console.log(Analysis === sequelize.model.Analysis);

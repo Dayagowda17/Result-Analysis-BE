@@ -1,29 +1,35 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 const Faculty = sequelize.define('Faculty', {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
 
-    KGID_NO: {
+    kgidno: {
         type: DataTypes.BIGINT,
         allowNull: false
     },
-    Name: {
+    name: {
         type: DataTypes.STRING
 
     },
-    DOB: {
+    dob: {
         type: DataTypes.DATE
 
     },
-    PhoneNumber: {
-        type: DataTypes.BIGINT
+    phone: {
+        type: DataTypes.STRING
     },
 
-    Designation: {
+    designation: {
         type: DataTypes.STRING
     },
-    Address: {
-        type: DataTypes.STRING
-    }
+    address: {
+        type: DataTypes.TEXT
+    },
+
 });
 
 console.log(Faculty === sequelize.models.Faculty);

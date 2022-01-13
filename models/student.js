@@ -1,42 +1,48 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const Student = sequelize.define('Student', {
-    // Model attributes are defined here
-    Name: {
+
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+
+    name: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    USN: {
+    usn: {
         type: DataTypes.STRING,
         allowNull: false
 
     },
-    Sem: {
+    sem: {
         type: DataTypes.INTEGER
     },
-    DOB: {
+    dob: {
         type: DataTypes.DATEONLY
     },
-    FatherName: {
+    father_name: {
         type: DataTypes.STRING
     },
-    MotherName: {
+    mother_name: {
         type: DataTypes.STRING
     },
-    Branch: {
+    branch: {
         type: DataTypes.STRING
     },
-    Address: {
+    address: {
+        type: DataTypes.TEXT
+    },
+    gender: {
         type: DataTypes.STRING
     },
-    Gender: {
+    phone: {
         type: DataTypes.STRING
     },
-    Phone: {
-        type: DataTypes.BIGINT
-    },
-    Email: {
+    email: {
         type: DataTypes.STRING
-    }
+    },
 
 });
 
