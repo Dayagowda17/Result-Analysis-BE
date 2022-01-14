@@ -1,23 +1,28 @@
-const { sequelize, DataTypes } = require.apply('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
+module.exports = (db) => {
+     const Allotment = db.define('Allotment', {
+        id: {
+            type: Sequelize.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        sub_code: {
+            type: DataTypes.STRING
+        },
+        sub_name: {
+            type: DataTypes.STRING
+        },
+        faculty: {
+            type: DataTypes.STRING
+        },
+        sem: {
+            type: DataTypes.INTEGER
+        },
+        series: {
+            type: DataTypes.INTEGER
+        },
+        accademic_year: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
 
-const Allotment = sequelize.define('Allotment', {
-    SubCode: {
-        type: DataTypes.STRING
-    },
-    SubName: {
-        type: DataTypes.STRING
-    },
-    Faculty: {
-        type: DataTypes.STRING
-    },
-    Sem: {
-        type: DataTypes.INTEGER
-    },
-    Series: {
-        type: DataTypes.INTEGER
-    },
-    Accademicyear: {
-        type: DataTypes.DATEONLY
-    },
-});
-console.log(Allotment === sequelize.model.Allotment);
+    });
+    return Allotment;
+}

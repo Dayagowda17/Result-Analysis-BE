@@ -1,16 +1,21 @@
 const { Sequelize, DataTypes } = require('sequelize');
-
+let sequelize;
+module.exports.initModel = (db) => {
+    sequelize = db
+}
 const Subject = Sequelize.define('Subject', {
-    SubjectCode: {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    subject_code: {
         type: DataTypes.STRING
     },
-    SubjectName: {
+    subject_name: {
         type: DataTypes.STRING
-
     },
-    Schema_Year: {
-        type: DataTypes.DATE
-    }
+    schema_year: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
 });
 
 
