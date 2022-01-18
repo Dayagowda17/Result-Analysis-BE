@@ -1,11 +1,11 @@
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const modelDirectory = './models';
-
+const config = require('../config');
 const db = {};
 db.init = async() => {
     try {
-        let sequelize = new Sequelize('result', 'postgres', 'sanchith', {
+        let sequelize = new Sequelize(config.db_name, config.db_user, config.db_password, {
             host: 'localhost',
             dialect: 'postgres',
             pool: {
@@ -32,7 +32,6 @@ db.init = async() => {
         });
         db.sequelize = sequelize;
         db.Sequelize = Sequelize;
-
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }

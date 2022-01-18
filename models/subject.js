@@ -1,4 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const faculty = require('./faculty');
 
 module.exports = (db) => {
     const Subject = db.define('Subject', {
@@ -15,5 +16,8 @@ module.exports = (db) => {
         },
         schema_year: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     });
+    db.models.Faculty.belongsToMany(Subject,{through:"AssignedSubjects"})
+    Subject.belongsTo(db.models.Faculty,{through:"AssignedSubjects"})
     return Subject;
 }
+           

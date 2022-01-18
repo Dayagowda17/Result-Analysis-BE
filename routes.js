@@ -11,6 +11,7 @@ module.exports = async(app) => {
     app.post('/student', studentController.create);
     app.post('/subject', subjectController.create);
 
+    app.get('/branch', branchController.getAll);
 
 
 }
