@@ -1,39 +1,39 @@
 const { Sequelize, DataTypes } = require('sequelize');
-let sequelize;
-module.exports.initModel = (db) => {
-    sequelize = db
+module.exports = (db) => {
+    const Faculty = db.define('Faculty', {
+        id: {
+            type: Sequelize.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        kgidno: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        dob: {
+            type: DataTypes.DATE,
+            allowNull: false
+
+        },
+        phone: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+
+        designation: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        address: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+
+    });
+
+    return Faculty;
 }
-
-const Faculty = sequelize.define('Faculty', {
-    id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-    },
-
-    kgidno: {
-        type: DataTypes.BIGINT,
-        allowNull: false
-    },
-    name: {
-        type: DataTypes.STRING
-
-    },
-    dob: {
-        type: DataTypes.DATE
-
-    },
-    phone: {
-        type: DataTypes.STRING
-    },
-
-    designation: {
-        type: DataTypes.STRING
-    },
-    address: {
-        type: DataTypes.TEXT
-    },
-
-});
-
-console.log(Faculty === sequelize.models.Faculty);
