@@ -12,12 +12,9 @@ module.exports = async(app) => {
     app.post('/subject', subjectController.create);
 
     app.get('/branch', branchController.getAll);
-<<<<<<< HEAD
     app.get('/faculty', facultyController.getAll);
     app.get('/student', studentController.getAll);
     app.get('/subject', subjectController.getAll);
-=======
->>>>>>> 15831eb55646b9c4e36051ef9a7f9194e7491595
 
 
 }
