@@ -26,7 +26,7 @@ module.exports.create = async(req, res, next) => {
             //validate input data here
             data.address = req.body.address.trim();
         }
-<<<<<<< HEAD
+
         const facultys = await db.Faculty.create(data);
         res.status(200).json(facultys);
 =======
@@ -37,7 +37,7 @@ module.exports.create = async(req, res, next) => {
         res.status(500).json({ message: err.message || "Error in creating faculty" })
     }
 
-<<<<<<< HEAD
+
 }
 
 
