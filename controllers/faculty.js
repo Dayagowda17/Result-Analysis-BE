@@ -32,7 +32,6 @@ module.exports.create = async(req, res, next) => {
 =======
         const faculty = await db.faculty.create(data);
         res.status(200).json(faculty);
->>>>>>> 15831eb55646b9c4e36051ef9a7f9194e7491595
     } catch (err) {
         console.log(err)
         res.status(500).json({ message: err.message || "Error in creating faculty" })
@@ -50,6 +49,4 @@ module.exports.getAll = async(req, res, next) => {
         console.log(err)
         res.status(500).json({ message: err.message || "Error in creating branch" })
     }
-=======
->>>>>>> 15831eb55646b9c4e36051ef9a7f9194e7491595
 }
