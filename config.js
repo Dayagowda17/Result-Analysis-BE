@@ -7,4 +7,8 @@ module.exports = {
     db_user: process.env.DB_USER,
     db_password: process.env.DB_PASSWORD,
     db_name: process.env.DB_NAME,
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 15831eb55646b9c4e36051ef9a7f9194e7491595

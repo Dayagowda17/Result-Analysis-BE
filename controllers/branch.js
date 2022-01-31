@@ -23,7 +23,11 @@ module.exports.getAll = async(req, res, next) => {
     try {
         const branches = await db.Branch.findAll();
         res.status(200).json(branches);
+<<<<<<< HEAD
     } catch (err) {
+=======
+    }catch (err) {
+>>>>>>> 15831eb55646b9c4e36051ef9a7f9194e7491595
         console.log(err)
         res.status(500).json({ message: err.message || "Error in creating branch" })
     }

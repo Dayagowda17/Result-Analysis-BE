@@ -21,6 +21,7 @@ module.exports.create = async(req, res, next) => {
         res.status(500).json({ message: err.message || "Error in creating Subject" })
     }
 
+<<<<<<< HEAD
 }
 
 module.exports.getAll = async(req, res, next) => {
@@ -31,4 +32,6 @@ module.exports.getAll = async(req, res, next) => {
         console.log(err)
         res.status(500).json({ message: err.message || "Error in creating subject" })
     }
+=======
+>>>>>>> 15831eb55646b9c4e36051ef9a7f9194e7491595
 }
