@@ -7,11 +7,9 @@ module.exports = (db) => {
             autoIncrement: true,
         },
         kgidno: {
-<<<<<<< HEAD
             type: DataTypes.INTEGER,
-=======
+
             type: DataTypes.BIGINT,
->>>>>>> 15831eb55646b9c4e36051ef9a7f9194e7491595
             allowNull: false
         },
         name: {
@@ -38,9 +36,6 @@ module.exports = (db) => {
         },
 
     });
-<<<<<<< HEAD
 
-=======
->>>>>>> 15831eb55646b9c4e36051ef9a7f9194e7491595
     return Faculty;
 }
