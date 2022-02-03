@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
-module.exports = (db) => {
+module.exports = async(db) => {
     const Student = db.define('Student', {
         id: {
             type: DataTypes.INTEGER,
@@ -19,7 +19,7 @@ module.exports = (db) => {
             allowNull: false
         },
         dob: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.DATE,
             allowNull: false
         },
         father_name: {
@@ -51,5 +51,6 @@ module.exports = (db) => {
         },
 
     });
+    await Student.sync({ force: false });
     return Student;
 }

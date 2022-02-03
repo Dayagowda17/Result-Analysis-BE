@@ -26,11 +26,7 @@ module.exports.create = async(req, res, next) => {
             //validate input data here
             data.address = req.body.address.trim();
         }
-
-        const facultys = await db.Faculty.create(data);
-        res.status(200).json(facultys);
-=======
-        const faculty = await db.faculty.create(data);
+        const faculty = await db.sequelize.models.Faculty.create(data);
         res.status(200).json(faculty);
     } catch (err) {
         console.log(err)
@@ -43,7 +39,7 @@ module.exports.create = async(req, res, next) => {
 
 module.exports.getAll = async(req, res, next) => {
     try {
-        const facultys = await db.Faculty.findAll();
+        const facultys = await db.sequelize.models.Faculty.findAll();
         res.status(200).json(facultys);
     } catch (err) {
         console.log(err)

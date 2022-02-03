@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
-module.exports = (db) => {
+module.exports = async(db) => {
     const Faculty = db.define('Faculty', {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
@@ -36,6 +36,6 @@ module.exports = (db) => {
         },
 
     });
-
+    await Faculty.sync({ force: false });
     return Faculty;
 }

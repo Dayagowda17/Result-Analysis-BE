@@ -5,11 +5,7 @@ const config = require('../config');
 const db = {};
 db.init = async() => {
     try {
-<<<<<<< HEAD
-        let sequelize = new Sequelize('result', 'postgres', 'sanchith', {
-=======
         let sequelize = new Sequelize(config.db_name, config.db_user, config.db_password, {
->>>>>>> 15831eb55646b9c4e36051ef9a7f9194e7491595
             host: 'localhost',
             dialect: 'postgres',
             pool: {
@@ -20,8 +16,9 @@ db.init = async() => {
 
         });
         await sequelize.authenticate();
+        
         console.log('Connection has been established successfully.');
-        fs.readdir(modelDirectory, (err, files) => {
+        fs.readdir(modelDirectory, async(err, files) => {
             files.forEach(file => {
                 const model = require(`../models/${file}`)(sequelize);
                 db[model.name] = model;
@@ -34,12 +31,9 @@ db.init = async() => {
         }).forEach((modelName) => {
             db[modelName].associate(db);
         });
+        
         db.sequelize = sequelize;
         db.Sequelize = Sequelize;
-<<<<<<< HEAD
-
-=======
->>>>>>> 15831eb55646b9c4e36051ef9a7f9194e7491595
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }

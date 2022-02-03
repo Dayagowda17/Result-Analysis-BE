@@ -14,7 +14,7 @@ module.exports.create = async(req, res, next) => {
             //validate input data here
             data.schema_year = req.body.schema_year.trim();
         }
-        const subject = await db.subject.create(data);
+        const subject = await db.sequelize.models.subject.create(data);
         res.status(200).json(subject);
     } catch (err) {
         console.log(err)
@@ -25,7 +25,7 @@ module.exports.create = async(req, res, next) => {
 
 module.exports.getAll = async(req, res, next) => {
     try {
-        const subjects = await db.Subject.findAll();
+        const subjects = await db.sequelize.models.Subject.findAll();
         res.status(200).json(subjects);
     } catch (err) {
         console.log(err)

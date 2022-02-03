@@ -46,7 +46,7 @@ module.exports.create = async(req, res, next) => {
             //validate input data here
             data.email = req.body.email.trim();
         }
-        const student = await db.Student.create(data);
+        const student = await db.sequelize.models.Student.create(data);
         res.status(200).json(student);
     } catch (err) {
         console.log(err)
@@ -58,7 +58,7 @@ module.exports.create = async(req, res, next) => {
 
 module.exports.getAll = async(req, res, next) => {
     try {
-        const students = await db.Student.findAll();
+        const students = await db.sequelize.models.Student.findAll();
         res.status(200).json(students);
     } catch (err) {
         console.log(err)

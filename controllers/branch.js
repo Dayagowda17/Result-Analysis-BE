@@ -1,4 +1,5 @@
 const db = require("../utils/db");
+
 module.exports.create = async(req, res, next) => {
     try {
         let data = {};
@@ -10,7 +11,7 @@ module.exports.create = async(req, res, next) => {
             //validate input data here
             data.branch_short_name = req.body.branch_short_name.trim();
         }
-        const branch = await db.Branch.create(data);
+        const branch = await db.sequelize.models.Branch.create(data);
         res.status(200).json(branch);
     } catch (err) {
         console.log(err)
@@ -21,11 +22,10 @@ module.exports.create = async(req, res, next) => {
 
 module.exports.getAll = async(req, res, next) => {
     try {
-        const branches = await db.Branch.findAll();
+        const branches = await db.sequelize.models.Branch.findAll();
         res.status(200).json(branches);
 
     }catch (err) {
-
         console.log(err)
         res.status(500).json({ message: err.message || "Error in creating branch" })
     }

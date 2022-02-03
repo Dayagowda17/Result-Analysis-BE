@@ -1,12 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
-
-const faculty = require('./faculty');
-
-
-module.exports = (db) => {
+module.exports = async(db) => {
     const Subject = db.define('Subject', {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
@@ -16,13 +12,11 @@ module.exports = (db) => {
         subject_name: {
             type: DataTypes.STRING
         },
-        schema_year: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
+        schema_year: { type: DataTypes.DATE, defaultValue: Sequelize.NOW },
     });
-
-    return Subject;
-}
     db.models.Faculty.belongsToMany(Subject,{through:"AssignedSubjects"})
     Subject.belongsTo(db.models.Faculty,{through:"AssignedSubjects"})
+    await Subject.sync({ force: false });
     return Subject;
 }
            

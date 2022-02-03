@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
-module.exports = (db) => {
+module.exports = async(db) => {
     const Branch = db.define('Branch', {
         id: {
             type: DataTypes.INTEGER,
@@ -15,5 +15,6 @@ module.exports = (db) => {
             allowNull: false
         }
     });
+    await Branch.sync({ force: false });
     return Branch;
 }
